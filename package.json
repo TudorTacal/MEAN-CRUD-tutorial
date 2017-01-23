@@ -4,6 +4,7 @@
   "description": "This is a tutorial to practice building a CRUD using the MEAN stack whilst at Makers Academy, in preparation for the final project.",
   "main": "index.js",
   "scripts": {
+    "dev": "nodemon server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -18,5 +19,8 @@
   "homepage": "https://github.com/TudorTacal/MEAN-CRUD-tutorial#readme",
   "dependencies": {
     "express": "^4.14.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.11.0"
   }
 }
