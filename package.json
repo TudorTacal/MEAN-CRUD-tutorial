@@ -1,0 +1,19 @@
+{
+  "name": "mean-tutorial",
+  "version": "1.0.0",
+  "description": "This is a tutorial to practice building a CRUD using the MEAN stack whilst at Makers Academy, in preparation for the final project.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TudorTacal/MEAN-CRUD-tutorial.git"
+  },
+  "author": "Tudor Tacal",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/TudorTacal/MEAN-CRUD-tutorial/issues"
+  },
+  "homepage": "https://github.com/TudorTacal/MEAN-CRUD-tutorial#readme"
+}
