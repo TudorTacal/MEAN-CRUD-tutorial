@@ -14,7 +14,10 @@ app.listen(3000, function () {
 app.get('/', (req, res) => {
   res.sendFile(__dirname + '/index.html');
   // Note: __dirname is directory that contains the JavaScript source code.
-
 });
 // replaced the function with the arrow function
 // Note: request and response are usually written as req and res respectively.
+
+app.post('/quotes', (req, res) => {
+  console.log("Heloooo!");
+});
