@@ -2,9 +2,10 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
-
-app.user(bodyParser.urlencoded({extended: true}));
+const MongoClient = require('mongodb').MongoClient
+app.use(bodyParser.urlencoded({extended: true}));
 // The urlencoded method within body-parser tells body-parser to extract data from the <form> element and add them to the body property in the request object.
+
 
 //  The first thing we want to do is to create a server
 //  where browsers can connect to. We can do so with the help of a
@@ -23,7 +24,7 @@ app.get('/', (req, res) => {
 // Note: request and response are usually written as req and res respectively.
 
 app.post('/quotes', (req, res) => {
-  console.log("Heloooo!");
+  console.log(req.body);
 });
 // Express allows us to add middlewares like body-parser to our application with the use method.
 // You’ll hear the term middleware a lot when dealing with Express. These things are basically plugins that

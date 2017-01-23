@@ -19,7 +19,8 @@
   "homepage": "https://github.com/TudorTacal/MEAN-CRUD-tutorial#readme",
   "dependencies": {
     "body-parser": "^1.16.0",
-    "express": "^4.14.0"
+    "express": "^4.14.0",
+    "mongodb": "^2.2.21"
   },
   "devDependencies": {
     "nodemon": "^1.11.0"
