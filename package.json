@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/TudorTacal/MEAN-CRUD-tutorial/issues"
   },
-  "homepage": "https://github.com/TudorTacal/MEAN-CRUD-tutorial#readme"
+  "homepage": "https://github.com/TudorTacal/MEAN-CRUD-tutorial#readme",
+  "dependencies": {
+    "express": "^4.14.0"
+  }
 }
