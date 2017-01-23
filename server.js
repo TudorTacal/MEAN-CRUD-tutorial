@@ -5,6 +5,7 @@ const app = express();
 const MongoClient = require('mongodb').MongoClient;
 
 app.use(bodyParser.urlencoded({extended: true}));
+app.set('view engine', 'ejs');
 // The urlencoded method within body-prser tells body-parser to extract data from the <form> element and add them to the body property in the request object.
 var db;
 
@@ -19,8 +20,9 @@ MongoClient.connect("mongodb://tudor:Meantutorial10!@ds127429.mlab.com:27429/mea
 
 
 app.get('/', (req, res) => {
-  var cursor = db.collection('quotes').find().toArray(function(err,results) {
-    console.log(results);
+  db.collection('quotes').find().toArray(function(err,results) {
+    if (err) return console.log(err);
+    res.render('index.ejs', {quotes: results});
   });
 });
 // replaced the function with the arrow function
