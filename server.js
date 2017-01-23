@@ -2,19 +2,21 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
-const MongoClient = require('mongodb').MongoClient
+const MongoClient = require('mongodb').MongoClient;
+
 app.use(bodyParser.urlencoded({extended: true}));
-// The urlencoded method within body-parser tells body-parser to extract data from the <form> element and add them to the body property in the request object.
+// The urlencoded method within body-prser tells body-parser to extract data from the <form> element and add them to the body property in the request object.
+var db;
 
-
-//  The first thing we want to do is to create a server
-//  where browsers can connect to. We can do so with the help of a
-//  listen method provided by Express:
-app.listen(3000, function () {
-  console.log("listening on 3000");
+MongoClient.connect("mongodb://tudor:Meantutorial10!@ds127429.mlab.com:27429/mean-tutorial", (err, database) => {
+  if (err) return console.log(err);
+  db = database;
+  app.listen(3000, () => {
+    console.log('listening on 3000');
+  });
 });
 
-// That’s a good sign. It means we can now communicate to our express server through the browser.
+
 
 app.get('/', (req, res) => {
   res.sendFile(__dirname + '/index.html');
@@ -24,7 +26,11 @@ app.get('/', (req, res) => {
 // Note: request and response are usually written as req and res respectively.
 
 app.post('/quotes', (req, res) => {
-  console.log(req.body);
+  db.collection('quotes').save(req.body, (err, result) => {
+    if (err) return console.log(err);
+    console.log('saved to database');
+    res.redirect('/')
+  });
 });
 // Express allows us to add middlewares like body-parser to our application with the use method.
 // You’ll hear the term middleware a lot when dealing with Express. These things are basically plugins that
