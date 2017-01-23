@@ -19,8 +19,9 @@ MongoClient.connect("mongodb://tudor:Meantutorial10!@ds127429.mlab.com:27429/mea
 
 
 app.get('/', (req, res) => {
-  res.sendFile(__dirname + '/index.html');
-  // Note: __dirname is directory that contains the JavaScript source code.
+  var cursor = db.collection('quotes').find().toArray(function(err,results) {
+    console.log(results);
+  });
 });
 // replaced the function with the arrow function
 // Note: request and response are usually written as req and res respectively.
@@ -29,7 +30,7 @@ app.post('/quotes', (req, res) => {
   db.collection('quotes').save(req.body, (err, result) => {
     if (err) return console.log(err);
     console.log('saved to database');
-    res.redirect('/')
+    res.redirect('/');
   });
 });
 // Express allows us to add middlewares like body-parser to our application with the use method.
