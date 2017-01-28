@@ -20,10 +20,10 @@ update.addEventListener('click', function () {
 var del = document.getElementById('delete')
 
 del.addEventListener('click', function () {
-  fetch('quotes',{
+  fetch('quotes', {
     method: 'delete',
     headers: {
-      'Content-Type': 'qpplication/json'
+      'Content-Type': 'application/json'
     },
     body: JSON.stringify({
       'name': 'Darth Vader'
@@ -31,8 +31,8 @@ del.addEventListener('click', function () {
   })
   .then(res => {
     if (res.ok) return res.json()
-  })
-  .then(data => {
+  }).
+  then(data => {
     console.log(data)
     window.location.reload()
   })

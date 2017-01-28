@@ -56,5 +56,12 @@ app.put('/quotes', (req, res) => {
       if (err) return res.send(err);
       res.send(result);
     });
-
 });
+
+app.delete('/quotes', (req, res) => {
+  db.collection('quotes').findOneAndDelete({name: req.body.name},
+  (err, result) => {
+    if (err) return res.send(500, err)
+    res.json('A darth vadar quote got deleted')
+  })
+})
